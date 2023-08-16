@@ -154,7 +154,7 @@ class WSU_Events_Querier extends Events_Querier {
 				$event = new Event(
 					$id,
 					get_the_title(),
-					get_the_excerpt(),
+					wp_strip_all_tags( get_the_excerpt() ),
 					get_the_content(),
 					get_the_permalink(),
 					$start_dt->format( 'm/d/Y' ),

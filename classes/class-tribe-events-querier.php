@@ -127,7 +127,7 @@ class Tribe_Events_Querier extends Events_Querier {
 			$event = new Event(
 				$id,
 				get_the_title( $p ),
-				tribe_post_excerpt( $p ),
+				wp_strip_all_tags( tribe_post_excerpt( $p ) ),
 				tribe_get_the_content( null, false, $p ),
 				tribe_get_event_link( $p ),
 				tribe_get_start_date( $id, false, 'm/d/Y' ),
