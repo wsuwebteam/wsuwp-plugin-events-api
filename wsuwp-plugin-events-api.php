@@ -3,7 +3,7 @@
  * Plugin Name: WSUWP Plugin Events API
  * Plugin URI: https://github.com/wsuwebteam/wsuwp-plugin-events-api
  * Description: A single standized API for querying events from events.wsu.edu or a site using Modern Tribe.
- * Version: 0.0.2
+ * Version: 1.0.1
  * Requires PHP: 7.3
  * Author: Washington State University, Dan White
  * Author URI: https://web.wsu.edu/
