@@ -102,7 +102,12 @@ class WSU_Events_Querier extends Events_Querier {
 		}
 
 		if ( ! empty( $this->params['tags'] ) ) {
-			$args['tag__in'] = $this->params['tags'];
+			$args['tax_query'][] = array(
+				'taxonomy' => 'post_tag',
+				'field'    => 'term_id',
+				'terms'    => $this->params['tags'],
+				'operator' => 'IN',
+			);
 		}
 
 		if ( ! empty( $this->params['categories'] ) ) {
