@@ -8,6 +8,7 @@ class Tribe_Events_Querier extends Events_Querier {
 		'categories'    => 'tribe_events_cat',
 		'tags'          => 'post_tag',
 		'organizations' => 'wsuwp_university_org',
+		'locations'     => 'wsuwp_university_location',
 	);
 
 
@@ -99,6 +100,15 @@ class Tribe_Events_Querier extends Events_Querier {
 				'taxonomy' => $this->taxonomies_map['organizations'],
 				'field'    => 'term_id',
 				'terms'    => $this->params['organizations'],
+				'operator' => 'IN',
+			);
+		}
+
+		if ( ! empty( $this->params['locations'] ) ) {
+			$args['tax_query'][] = array(
+				'taxonomy' => $this->taxonomies_map['locations'],
+				'field'    => 'term_id',
+				'terms'    => $this->params['locations'],
 				'operator' => 'IN',
 			);
 		}
