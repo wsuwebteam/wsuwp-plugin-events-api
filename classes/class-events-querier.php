@@ -25,6 +25,7 @@ abstract class Events_Querier {
 			'categories'    => $this->convert_to_array_of_ids( $this->get_param( 'categories' ) ),
 			'tags'          => $this->convert_to_array_of_ids( $this->get_param( 'tags' ) ),
 			'organizations' => $this->convert_to_array_of_ids( $this->get_param( 'organizations' ) ),
+			'locations'     => $this->convert_to_array_of_ids( $this->get_param( 'locations' ) ),
 			'offset'        => (int) $this->get_param( 'offset', 0 ),
 		);
 
