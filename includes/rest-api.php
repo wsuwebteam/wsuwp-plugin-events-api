@@ -25,16 +25,6 @@ class Rest_API {
 			)
 		);
 
-		register_rest_route(
-			'wsu-events/v1',
-			'debug',
-			array(
-				'methods'             => \WP_REST_Server::READABLE,
-				'callback'            => array( __CLASS__, 'debug' ),
-				'permission_callback' => '__return_true',
-			)
-		);
-
 		/*
 		register_rest_route(
 			'wsu-events/v1',
@@ -46,29 +36,6 @@ class Rest_API {
 			)
 		);
 		*/
-	}
-
-
-	public static function debug( \WP_REST_Request $request ) {
-
-		$args          = array(
-			'posts_per_page' => 5,
-			'offset'         => 0,
-			'ends_after'     => 'now',
-		);
-		$args2         = array(
-			'posts_per_page' => 5,
-			'offset'         => 0,
-			'start_date'     => 'now',
-		);
-		$tribe_events  = tribe_get_events( $args, false );
-		$tribe_events2 = tribe_get_events( $args2, false );
-
-		return array(
-
-			'ends_after' => $tribe_events,
-			'start_date' => $tribe_events2,
-		);
 	}
 
 
@@ -84,7 +51,7 @@ class Rest_API {
 		$events = $event_querier->get_events();
 
 		return array_map(
-			function( $e ) {
+			function ( $e ) {
 				return $e->serialize();
 			},
 			$events
@@ -135,8 +102,6 @@ class Rest_API {
 		return substr( $haystack, 0, $length ) === $needle;
 
 	}
-
-
 }
 
 Rest_API::init();

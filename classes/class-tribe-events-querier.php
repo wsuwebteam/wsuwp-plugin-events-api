@@ -61,9 +61,11 @@ class Tribe_Events_Querier extends Events_Querier {
 
 		$args['post__in']       = $this->params['post_ids'];
 		$args['posts_per_page'] = -1;
+		$args['orderby']        = 'meta_value';
+		$args['meta_key']       = '_EventStartDate';
+		$args['order']          = 'ASC';
 
 		return $this->query_events( $args );
-
 	}
 
 
@@ -72,6 +74,9 @@ class Tribe_Events_Querier extends Events_Querier {
 		$args['posts_per_page'] = $this->params['count'];
 		$args['offset']         = $this->params['offset'];
 		$args['ends_after']     = 'now';
+		$args['orderby']        = 'meta_value';
+		$args['meta_key']       = '_EventStartDate';
+		$args['order']          = 'ASC';
 
 		if ( ! empty( $this->params['exclude'] ) ) {
 			$args['post__not_in'] = $this->params['exclude'];
